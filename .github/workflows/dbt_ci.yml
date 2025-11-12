@@ -1,0 +1,51 @@
+name: dbt CI
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dbt (SQLite)
+        run: |
+          pip install dbt-core dbt-sqlite
+
+      - name: Create dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          echo "data_pipeline_dbt_aws_demo:" > ~/.dbt/profiles.yml
+          echo "  outputs:" >> ~/.dbt/profiles.yml
+          echo "    dev:" >> ~/.dbt/profiles.yml
+          echo "      type: sqlite" >> ~/.dbt/profiles.yml
+          echo "      threads: 1" >> ~/.dbt/profiles.yml
+          echo "      database: demo.db" >> ~/.dbt/profiles.yml
+          echo "      schema: main" >> ~/.dbt/profiles.yml
+          echo "      schemas_and_paths:" >> ~/.dbt/profiles.yml
+          echo "        main: demo.db" >> ~/.dbt/profiles.yml
+          echo "      schema_directory: /home/runner/work/data-pipeline-dbt-aws-demo/data-pipeline-dbt-aws-demo/data_pipeline_dbt_aws_demo" >> ~/.dbt/profiles.yml
+          echo "  target: dev" >> ~/.dbt/profiles.yml
+
+      - name: Debug dbt setup
+        run: dbt debug --project-dir data_pipeline_dbt_aws_demo --profiles-dir ~/.dbt
+
+      - name: Seed demo data
+        run: dbt seed --project-dir data_pipeline_dbt_aws_demo --profiles-dir ~/.dbt
+
+      - name: Run dbt models
+        run: dbt run --project-dir data_pipeline_dbt_aws_demo --profiles-dir ~/.dbt
+
+      - name: Run dbt tests
+        run: dbt test --project-dir data_pipeline_dbt_aws_demo --profiles-dir ~/.dbt
