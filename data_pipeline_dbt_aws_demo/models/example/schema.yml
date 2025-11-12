@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: check_data_counts
+    description: "Validates that all seed tables were loaded correctly."
+    columns:
+      - name: table_name
+        description: "Name of the seeded table."
+      - name: record_count
+        description: "Number of records in each seed table."
+        tests:
+          - not_null
+
+  - name: my_orders_summary
+    description: "Combines customers, orders, order_items, and products into a detailed order-level dataset."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - not_null
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - not_null
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - not_null
+      - name: total_amount
+        description: "Total amount per order item."
+        tests:
+          - not_null
+
+  - name: customer_sales_summary
+    description: "Aggregates total spend, total orders, and average order value per customer."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        description: "Total number of orders placed by each customer."
+      - name: total_spend
+        description: "Total spending amount per customer."
+      - name: avg_order_value
+        description: "Average order value per customer."
