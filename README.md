@@ -1,14 +1,12 @@
 
-# 🧠 Data Pipeline dbt AWS Demo
+# 🧠 Data Pipeline dbt AWS Demo  
+
+[![dbt CI](https://github.com/reshmavarghese15/data-pipeline-dbt-aws-demo/actions/workflows/dbt_ci.yml/badge.svg)](https://github.com/reshmavarghese15/data-pipeline-dbt-aws-demo/actions)
+[![Built with dbt](https://img.shields.io/badge/Built%20with-dbt-FF694B?logo=dbt)](https://docs.getdbt.com/)
+[![Run Locally](https://img.shields.io/badge/Run%20Locally-Command%20Line-2ea44f?style=flat&logo=gnometerminal&logoColor=white)](#️-setup--run)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 > A lightweight end-to-end dbt demo pipeline using SQLite — perfect for learning, analytics, and AWS-style data transformations.
-
-[![Run Locally](https://img.shields.io/badge/Run%20Locally-Command%20Line-2ea44f?style=flat&logo=gnometerminal&logoColor=white)](#️-setup--run)
-[![Built with dbt](https://img.shields.io/badge/Built%20with-dbt-FF694B?logo=dbt)](https://docs.getdbt.com/)
-
-
-A simple yet complete dbt project demonstrating how to build a mini data pipeline using SQLite and dbt.
-It includes data seeding, model transformations, and data validation — ideal for analytics engineering demonstrations or portfolio work.
 
 ---
 
@@ -154,19 +152,20 @@ dbt ls
 
 ## 💡 Future Improvements
 
-This demo can easily be extended into a more robust analytics project. Possible next steps:
+This project serves as a foundation for modern analytics pipelines.
+Next steps could include:
 
-- 🔄 Connect to AWS Redshift or Snowflake for production-grade pipelines
+- ☁️ Migrate from SQLite to Snowflake or Redshift for production-grade scalability
 
-- 🧪 Add dbt tests to validate referential integrity, null values, and data freshness
+- 🔄 Enhance CI/CD workflows (e.g., run tests on pull requests, nightly dbt runs)
 
-- 🧰 Automate dbt runs using GitHub Actions or AWS Lambda
+- 🧪 Add advanced dbt tests — referential integrity, freshness, and schema-level constraints
 
-- 📈 Add dashboards (Power BI, Tableau, or Metabase) for analytics visualization
+- 📈 Integrate dashboards (Power BI, Tableau, or Streamlit) to visualize dbt model outputs
 
-- 🪶 Separate staging and marts layers for better scalability
+- 🪶 Add incremental models to simulate real-world batch and streaming data
 
-- 📦 Implement incremental models for large data volumes
+- 🔐 Parameterize environments (dev/prod profiles) for multi-environment orchestration
 
 ---
 
