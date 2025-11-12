@@ -35,6 +35,7 @@ jobs:
           echo "      schema: main" >> ~/.dbt/profiles.yml
           echo "      schemas_and_paths:" >> ~/.dbt/profiles.yml
           echo "        main: demo.db" >> ~/.dbt/profiles.yml
+          echo "      schema_directory: /home/runner/work/data-pipeline-dbt-aws-demo/data-pipeline-dbt-aws-demo/data_pipeline_dbt_aws_demo" >> ~/.dbt/profiles.yml
           echo "  target: dev" >> ~/.dbt/profiles.yml
 
       - name: Debug dbt setup
