@@ -33,6 +33,8 @@ jobs:
           echo "      threads: 1" >> ~/.dbt/profiles.yml
           echo "      database: demo.db" >> ~/.dbt/profiles.yml
           echo "      schema: main" >> ~/.dbt/profiles.yml
+          echo "      schemas_and_paths:" >> ~/.dbt/profiles.yml
+          echo "        main: demo.db" >> ~/.dbt/profiles.yml
           echo "  target: dev" >> ~/.dbt/profiles.yml
 
       - name: Debug dbt setup
