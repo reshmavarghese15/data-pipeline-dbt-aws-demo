@@ -176,6 +176,10 @@ Next steps could include:
 - [dbt Slack](https://community.getdbt.com/)
 - [dbt Blog](https://blog.getdbt.com/)
 
+---
+
+📖 **Read the full Medium article:**  
+[How I Built a Mini Data Pipeline Using dbt + SQLite](https://medium.com/@reshma.varghese.tech/how-i-built-a-mini-data-pipeline-using-dbt-sqlite-e3692288f974)
 
 ---
 ✨ *Created as a hands-on data pipeline demo using dbt + SQLite.* 🚀
